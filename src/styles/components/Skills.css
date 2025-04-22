@@ -103,20 +103,28 @@
   background: linear-gradient(to right, #3c873a, #6fc06d);
 }
 
-.skills-category[data-category="data"]:before {
+.skills-category[data-category="dataScience"]:before {
   background: linear-gradient(to right, #306998, #5c9fd0);
 }
 
-.skills-category[data-category="app"]:before {
-  background: linear-gradient(to right, #A97BFF, #c9aaff);
+.skills-category[data-category="dataAnalysis"]:before {
+  background: linear-gradient(to right, #FFB800, #ffd466);
 }
 
-.skills-category[data-category="other"]:before {
-  background: linear-gradient(to right, #FF6B6B, #ff9f9f);
+.skills-category[data-category="dataViz"]:before {
+  background: linear-gradient(to right, #54B4D3, #8fd3e8);
 }
 
-.skills-category[data-category="tools"]:before {
+.skills-category[data-category="databases"]:before {
   background: linear-gradient(to right, #007ACC, #44a6e2);
+}
+
+.skills-category[data-category="machineLearning"]:before {
+  background: linear-gradient(to right, #FF8C00, #ffb54d);
+}
+
+.skills-category[data-category="bigData"]:before {
+  background: linear-gradient(to right, #E87722, #f1a567);
 }
 
 .skills-category:before {
@@ -191,182 +199,105 @@
   color: #3c873a;
 }
 
-.skills-category[data-category="data"] .category-icon {
+.skills-category[data-category="dataScience"] .category-icon {
   color: #306998;
 }
 
-.skills-category[data-category="app"] .category-icon {
-  color: #A97BFF;
+.skills-category[data-category="dataAnalysis"] .category-icon {
+  color: #FFB800;
 }
 
-.skills-category[data-category="other"] .category-icon {
-  color: #FF6B6B;
+.skills-category[data-category="dataViz"] .category-icon {
+  color: #54B4D3;
 }
 
-.skills-category[data-category="tools"] .category-icon {
+.skills-category[data-category="databases"] .category-icon {
   color: #007ACC;
 }
 
-.skills-list {
-  display: flex;
-  flex-direction: column;
+.skills-category[data-category="machineLearning"] .category-icon {
+  color: #FF8C00;
+}
+
+.skills-category[data-category="bigData"] .category-icon {
+  color: #E87722;
+}
+
+/* Circular Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 20px;
 }
 
-.skill {
+.skill-circular {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  align-items: center;
   opacity: 0;
   animation: fadeIn 0.5s forwards;
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 12px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.skill:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-  transform: translateX(5px);
-}
-
-.skill-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.skill-icon-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.skill-icon-container i {
-  font-size: 1.5rem;
-  width: 25px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
-.skill:hover .skill-icon-container i {
-  transform: scale(1.2) rotate(5deg);
+.skill-circular:hover {
+  transform: translateY(-5px);
 }
 
-.skill-name {
+.skill-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-circular:hover .skill-circle {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.skill-inner-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-inner-circle i {
+  font-size: 30px;
+  transition: transform 0.3s ease;
+}
+
+.skill-circular:hover .skill-inner-circle i {
+  transform: scale(1.2);
+}
+
+.skill-circular-info {
+  margin-top: 12px;
+  transition: transform 0.3s ease;
+}
+
+.skill-circular-name {
   font-weight: 500;
-  color: #444;
-  transition: color 0.3s ease;
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 2px;
 }
 
-.skill:hover .skill-name {
-  color: #4a6cf7;
-}
-
-.skill-percentage {
+.skill-circular-percentage {
   font-weight: 600;
-  color: #4a6cf7;
-  opacity: 0.8;
-  transition: all 0.3s ease;
-}
-
-.skill:hover .skill-percentage {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-.skill-bar {
-  height: 10px;
-  background-color: rgba(240, 240, 240, 0.8);
-  border-radius: 5px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.skill-progress {
-  height: 100%;
-  border-radius: 5px;
-  width: 0;
-  transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  position: relative;
-  overflow: hidden;
-}
-
-.skill-progress:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.3) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  animation: shine 2s infinite;
+  font-size: 0.8rem;
 }
 
 /* Background particles */
-.skills-particles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.particle {
-  position: absolute;
-  background-color: rgba(74, 108, 247, 0.1);
-  border-radius: 50%;
-  animation: float 20s infinite linear;
-}
-
-.particle:nth-child(1) { width: 80px; height: 80px; top: 10%; left: 10%; animation-duration: 30s; }
-.particle:nth-child(2) { width: 60px; height: 60px; top: 20%; left: 80%; animation-duration: 25s; }
-.particle:nth-child(3) { width: 40px; height: 40px; top: 50%; left: 20%; animation-duration: 40s; }
-.particle:nth-child(4) { width: 70px; height: 70px; top: 70%; left: 70%; animation-duration: 35s; }
-.particle:nth-child(5) { width: 50px; height: 50px; top: 80%; left: 30%; animation-duration: 45s; }
-.particle:nth-child(6) { width: 30px; height: 30px; top: 30%; left: 50%; animation-duration: 50s; }
-.particle:nth-child(7) { width: 55px; height: 55px; top: 40%; left: 90%; animation-duration: 38s; }
-.particle:nth-child(8) { width: 45px; height: 45px; top: 60%; left: 40%; animation-duration: 42s; }
-.particle:nth-child(9) { width: 65px; height: 65px; top: 90%; left: 60%; animation-duration: 32s; }
-.particle:nth-child(10) { width: 35px; height: 35px; top: 15%; left: 15%; animation-duration: 36s; }
-.particle:nth-child(11) { width: 25px; height: 25px; top: 25%; left: 25%; animation-duration: 46s; }
-.particle:nth-child(12) { width: 75px; height: 75px; top: 45%; left: 35%; animation-duration: 33s; }
-.particle:nth-child(13) { width: 85px; height: 85px; top: 65%; left: 55%; animation-duration: 41s; }
-.particle:nth-child(14) { width: 95px; height: 95px; top: 85%; left: 75%; animation-duration: 37s; }
-.particle:nth-child(15) { width: 100px; height: 100px; top: 5%; left: 95%; animation-duration: 47s; }
-
-@keyframes float {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  33% {
-    transform: translateY(-50px) translateX(20px) rotate(120deg);
-  }
-  66% {
-    transform: translateY(20px) translateX(-50px) rotate(240deg);
-  }
-  100% {
-    transform: translateY(0) translateX(0) rotate(360deg);
-  }
-}
-
-@keyframes shine {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -389,6 +320,10 @@
   
   .section-title {
     font-size: 2.2rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
   }
 }
 
@@ -419,6 +354,24 @@
   .filter-btn {
     flex-shrink: 0;
   }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+  
+  .skill-circle {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .skill-inner-circle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .skill-inner-circle i {
+    font-size: 25px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -433,5 +386,31 @@
   .filter-btn i {
     font-size: 1rem;
     margin: 0;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .skill-circle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .skill-inner-circle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .skill-inner-circle i {
+    font-size: 20px;
+  }
+  
+  .skill-circular-name {
+    font-size: 0.8rem;
+  }
+  
+  .skill-circular-percentage {
+    font-size: 0.7rem;
   }
 }

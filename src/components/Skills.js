@@ -1,222 +1,3 @@
-// import React, { useState, useEffect, useRef } from 'react';
-// import '../styles/components/Skills.css';
-
-// const Skills = () => {
-//   const [activeCategory, setActiveCategory] = useState('all');
-//   const [isVisible, setIsVisible] = useState(false);
-//   const skillsRef = useRef(null);
-  
-//   const frontendSkills = [
-//     { name: "HTML5", icon: "fab fa-html5", percentage: 95, color: "#e34c26" },
-//     { name: "CSS3", icon: "fab fa-css3-alt", percentage: 90, color: "#264de4" },
-//     { name: "JavaScript", icon: "fab fa-js", percentage: 70, color: "#f0db4f" },
-//     { name: "React.js", icon: "fab fa-react", percentage: 60, color: "#61DBFB" }
-//   ];
-  
-//   const backendSkills = [
-//     { name: "Node.js", icon: "fab fa-node-js", percentage: 70, color: "#3c873a" },
-//     { name: "Express", icon: "fas fa-server", percentage: 70, color: "#000000" },
-//     { name: "PHP", icon: "fab fa-php", percentage: 75, color: "#777BB3" }
-//   ];
-  
-//   const otherSkills = [
-//     { name: "Git/GitHub", icon: "fab fa-git-alt", percentage: 85, color: "#F1502F" },
-//     { name: "Responsive Design", icon: "fas fa-mobile-alt", percentage: 90, color: "#FF6B6B" },
-//     { name: "UI/UX Design", icon: "fas fa-pencil-ruler", percentage: 75, color: "#FF9A8B" }
-//   ];
-
-//   const dataScienceSkills = [
-//     { name: "Python", icon: "fab fa-python", percentage: 70, color: "#306998" },
-//     { name: "R Language", icon: "fab fa-r-project", percentage: 90, color: "#276DC3" },
-//     { name: "Machine Learning", icon: "fas fa-brain", percentage: 75, color: "#FF8C00" }
-//   ];
-
-//   const appDevelopmentSkills = [
-//     { name: "Kotlin", icon: "fas fa-code", percentage: 80, color: "#A97BFF" },
-//     { name: "Android Studio", icon: "fas fa-laptop-code", percentage: 75, color: "#3DDC84" },
-//     { name: "Firebase", icon: "fas fa-fire", percentage: 85, color: "#FFCA28" }
-//   ];
-
-//   const tools = [
-//     { name: "VS Code", icon: "fas fa-code", percentage: 90, color: "#007ACC" },
-//     { name: "Tableau Desktop", icon: "fas fa-chart-bar", percentage: 80, color: "#E97627" },
-//     { name: "R Studio", icon: "fas fa-project-diagram", percentage: 75, color: "#276DC3" },
-//     { name: "MS Excel", icon: "fas fa-file-excel", percentage: 80, color: "#217346" },
-//     { name: "Power BI", icon: "fas fa-chart-pie", percentage: 70, color: "#F2C811" },
-//     { name: "Dashboard Design", icon: "fas fa-tachometer-alt", percentage: 80, color: "#6A1B9A" }
-//   ];
-  
-//   const categories = [
-//     { id: 'all', name: 'All Skills', icon: 'fas fa-layer-group' },
-//     { id: 'frontend', name: 'Frontend', icon: 'fas fa-code' },
-//     { id: 'backend', name: 'Backend', icon: 'fas fa-server' },
-//     { id: 'data', name: 'Data Science', icon: 'fas fa-chart-line' },
-//     { id: 'app', name: 'App Dev', icon: 'fas fa-mobile-alt' },
-//     { id: 'tools', name: 'Tools', icon: 'fas fa-toolbox' },
-//     { id: 'other', name: 'Other', icon: 'fas fa-tools' }
-//   ];
-
-//   useEffect(() => {
-//     const observer = new IntersectionObserver(
-//       ([entry]) => {
-//         if (entry.isIntersecting) {
-//           setIsVisible(true);
-//         }
-//       },
-//       { threshold: 0.1 }
-//     );
-    
-//     if (skillsRef.current) {
-//       observer.observe(skillsRef.current);
-//     }
-    
-//     return () => {
-//       if (skillsRef.current) {
-//         observer.unobserve(skillsRef.current);
-//       }
-//     };
-//   }, []);
-
-//   // Function to check if a category should be displayed
-//   const shouldDisplayCategory = (categoryId) => {
-//     return activeCategory === 'all' || activeCategory === categoryId;
-//   };
-
-//   const renderSkillSet = (skillSet, delay = 0) => {
-//     return skillSet.map((skill, index) => (
-//       <div 
-//         className="skill" 
-//         key={index}
-//         style={{
-//           animationDelay: isVisible ? `${delay + index * 0.1}s` : '0s'
-//         }}
-//       >
-//         <div className="skill-info">
-//           <span className="skill-icon-container">
-//             <i className={skill.icon} style={{ color: skill.color }}></i>
-//             <span className="skill-name">{skill.name}</span>
-//           </span>
-//           <span className="skill-percentage">{skill.percentage}%</span>
-//         </div>
-//         <div className="skill-bar">
-//           <div 
-//             className="skill-progress" 
-//             style={{ 
-//               width: isVisible ? `${skill.percentage}%` : '0%', 
-//               backgroundColor: skill.color,
-//               transitionDelay: isVisible ? `${delay + index * 0.2}s` : '0s'
-//             }}
-//           ></div>
-//         </div>
-//       </div>
-//     ));
-//   };
-
-//   return (
-//     <section id="skills" className="skills" ref={skillsRef}>
-//       <div className="container">
-//         <h2 className="section-title">My Skills</h2>
-        
-//         <div className="skills-filter">
-//           {categories.map((category) => (
-//             <button 
-//               key={category.id}
-//               className={`filter-btn ${activeCategory === category.id ? 'active' : ''}`}
-//               onClick={() => setActiveCategory(category.id)}
-//             >
-//               <i className={category.icon}></i>
-//               <span>{category.name}</span>
-//             </button>
-//           ))}
-//         </div>
-        
-//         <div className="skills-container">
-//           {shouldDisplayCategory('frontend') && (
-//             <div className={`skills-category ${isVisible ? 'animate-in' : ''}`}>
-//               <h3 className="category-title">
-//                 <i className="fas fa-code category-icon"></i>
-//                 Frontend Development
-//               </h3>
-//               <div className="skills-list">
-//                 {renderSkillSet(frontendSkills, 0.3)}
-//               </div>
-//             </div>
-//           )}
-          
-//           {shouldDisplayCategory('backend') && (
-//             <div className={`skills-category ${isVisible ? 'animate-in' : ''}`} style={{ animationDelay: '0.2s' }}>
-//               <h3 className="category-title">
-//                 <i className="fas fa-server category-icon"></i>
-//                 Backend Development
-//               </h3>
-//               <div className="skills-list">
-//                 {renderSkillSet(backendSkills, 0.5)}
-//               </div>
-//             </div>
-//           )}
-          
-//           {shouldDisplayCategory('data') && (
-//             <div className={`skills-category ${isVisible ? 'animate-in' : ''}`} style={{ animationDelay: '0.4s' }}>
-//               <h3 className="category-title">
-//                 <i className="fas fa-chart-line category-icon"></i>
-//                 Data Science Skills
-//               </h3>
-//               <div className="skills-list">
-//                 {renderSkillSet(dataScienceSkills, 0.7)}
-//               </div>
-//             </div>
-//           )}
-
-//           {shouldDisplayCategory('app') && (
-//             <div className={`skills-category ${isVisible ? 'animate-in' : ''}`} style={{ animationDelay: '0.6s' }}>
-//               <h3 className="category-title">
-//                 <i className="fas fa-mobile-alt category-icon"></i>
-//                 App Development
-//               </h3>
-//               <div className="skills-list">
-//                 {renderSkillSet(appDevelopmentSkills, 0.9)}
-//               </div>
-//             </div>
-//           )}
-
-//           {shouldDisplayCategory('other') && (
-//             <div className={`skills-category ${isVisible ? 'animate-in' : ''}`} style={{ animationDelay: '0.8s' }}>
-//               <h3 className="category-title">
-//                 <i className="fas fa-tools category-icon"></i>
-//                 Other Skills
-//               </h3>
-//               <div className="skills-list">
-//                 {renderSkillSet(otherSkills, 1.1)}
-//               </div>
-//             </div>
-//           )}
-
-//           {shouldDisplayCategory('tools') && (
-//             <div className={`skills-category ${isVisible ? 'animate-in' : ''}`} style={{ animationDelay: '1s' }}>
-//               <h3 className="category-title">
-//                 <i className="fas fa-toolbox category-icon"></i>
-//                 Tools
-//               </h3>
-//               <div className="skills-list">
-//                 {renderSkillSet(tools, 1.3)}
-//               </div>
-//             </div>
-//           )}
-//         </div>
-//       </div>
-
-//       <div className="skills-particles">
-//         {[...Array(15)].map((_, i) => (
-//           <div key={i} className="particle"></div>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Skills;
-
-
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/components/Skills.css';
 
@@ -235,72 +16,112 @@ const Skills = () => {
       background: 'linear-gradient(135deg, rgba(60, 135, 58, 0.08), rgba(60, 135, 58, 0.02))',
       border: '#3c873a'
     },
-    data: {
+    dataScience: {
       background: 'linear-gradient(135deg, rgba(48, 105, 152, 0.08), rgba(48, 105, 152, 0.02))',
       border: '#306998'
     },
-    app: {
-      background: 'linear-gradient(135deg, rgba(169, 123, 255, 0.08), rgba(169, 123, 255, 0.02))',
-      border: '#A97BFF'
+    dataViz: {
+      background: 'linear-gradient(135deg, rgba(84, 180, 211, 0.08), rgba(84, 180, 211, 0.02))',
+      border: '#54B4D3'
     },
-    other: {
-      background: 'linear-gradient(135deg, rgba(255, 107, 107, 0.08), rgba(255, 107, 107, 0.02))',
-      border: '#FF6B6B'
-    },
-    tools: {
+    databases: {
       background: 'linear-gradient(135deg, rgba(0, 122, 204, 0.08), rgba(0, 122, 204, 0.02))',
       border: '#007ACC'
-    }
+    },
+    appdevelopment: {
+      background: 'linear-gradient(135deg, rgba(255, 140, 0, 0.08), rgba(255, 140, 0, 0.02))',
+      border: '#FF8C00'
+    },
+    bigData: {
+      background: 'linear-gradient(135deg, rgba(232, 119, 34, 0.08), rgba(232, 119, 34, 0.02))',
+      border: '#E87722'
+    },
+    programming: {
+      background: 'linear-gradient(135deg, rgba(73, 101, 163, 0.08), rgba(73, 101, 163, 0.02))',
+      border: '#4965A3'
+    },
+    tools: {
+        background: 'linear-gradient(135deg, rgba(0, 122, 204, 0.08), rgba(0, 111, 204, 0.02))',
+        border: '#007ACC'
+      }
   };
   
   const frontendSkills = [
     { name: "HTML5", icon: "fab fa-html5", percentage: 95, color: "#e34c26" },
-    { name: "CSS3", icon: "fab fa-css3-alt", percentage: 90, color: "#264de4" },
+    { name: "CSS3", icon: "fab fa-css3-alt", percentage: 95, color: "#264de4" },
     { name: "JavaScript", icon: "fab fa-js", percentage: 70, color: "#f0db4f" },
-    { name: "React.js", icon: "fab fa-react", percentage: 60, color: "#61DBFB" }
+    { name: "React.js", icon: "fab fa-react", percentage: 70, color: "#61DBFB" },
+    { name: "Tailwind CSS", icon: "fab fa-css3", percentage: 85, color: "#38B2AC" }
   ];
   
   const backendSkills = [
     { name: "Node.js", icon: "fab fa-node-js", percentage: 70, color: "#3c873a" },
     { name: "Express", icon: "fas fa-server", percentage: 70, color: "#000000" },
-    { name: "PHP", icon: "fab fa-php", percentage: 75, color: "#777BB3" }
+    { name: "PHP", icon: "fab fa-php", percentage: 75, color: "#777BB3" },
   ];
   
-  const otherSkills = [
-    { name: "Git/GitHub", icon: "fab fa-git-alt", percentage: 85, color: "#F1502F" },
-    { name: "Responsive Design", icon: "fas fa-mobile-alt", percentage: 90, color: "#FF6B6B" },
-    { name: "UI/UX Design", icon: "fas fa-pencil-ruler", percentage: 75, color: "#FF9A8B" }
-  ];
-
   const dataScienceSkills = [
-    { name: "Python", icon: "fab fa-python", percentage: 70, color: "#306998" },
+    { name: "Python", icon: "fab fa-python", percentage: 85, color: "#306998" },
     { name: "R Language", icon: "fab fa-r-project", percentage: 90, color: "#276DC3" },
-    { name: "Machine Learning", icon: "fas fa-brain", percentage: 75, color: "#FF8C00" }
+    { name: "NumPy", icon: "fas fa-calculator", percentage: 85, color: "#4DABCF" },
+    { name: "Pandas", icon: "fas fa-table", percentage: 90, color: "#150458" }
   ];
-
+  
+  const dataVisualizationSkills = [
+    { name: "Excel", icon: "fas fa-file-excel", percentage: 95, color: "#217346" },
+    { name: "Tableau", icon: "fas fa-chart-bar", percentage: 85, color: "#E97627" },
+    { name: "Power BI", icon: "fas fa-chart-pie", percentage: 80, color: "#F2C811" },
+    { name: "Matplotlib", icon: "fas fa-chart-line", percentage: 85, color: "#11557C" },
+    { name: "Seaborn", icon: "fas fa-chart-area", percentage: 80, color: "#4CB5AE" }
+  ];
+  
+  const databaseSkills = [
+    { name: "MySQL", icon: "fas fa-database", percentage: 90, color: "#4479A1" },
+    { name: "MongoDB", icon: "fas fa-leaf", percentage: 85, color: "#4DB33D" },
+    { name: "SQLite", icon: "fas fa-database", percentage: 85, color: "#003B57" }
+  ];
+  
   const appDevelopmentSkills = [
     { name: "Kotlin", icon: "fas fa-code", percentage: 80, color: "#A97BFF" },
     { name: "Android Studio", icon: "fas fa-laptop-code", percentage: 75, color: "#3DDC84" },
     { name: "Firebase", icon: "fas fa-fire", percentage: 85, color: "#FFCA28" }
   ];
+  
+  const bigDataSkills = [
+    { name: "Hadoop", icon: "fas fa-database", percentage: 75, color: "#FFD119" },
+    { name: "Hive", icon: "fas fa-database", percentage: 75, color: "#FDEE21" },
+    { name: "HBase", icon: "fas fa-server", percentage: 70, color: "#BA160C" },
+    { name: "Pig", icon: "fas fa-database", percentage: 65, color: "#FF6A4C" }
+  ];
+  
+  const programmingLanguages = [
+    { name: "C++", icon: "fas fa-code", percentage: 85, color: "#004482" },
+    { name: "Java", icon: "fab fa-java", percentage: 80, color: "#EA2D2E" },
+    { name: "C", icon: "fas fa-code", percentage: 80, color: "#5C6BC0" },
+    { name: "Python", icon: "fab fa-python", percentage: 80, color: "#306998" }
+  ];
 
   const tools = [
-    { name: "VS Code", icon: "fas fa-code", percentage: 90, color: "#007ACC" },
-    { name: "Tableau Desktop", icon: "fas fa-chart-bar", percentage: 80, color: "#E97627" },
-    { name: "R Studio", icon: "fas fa-project-diagram", percentage: 75, color: "#276DC3" },
-    { name: "MS Excel", icon: "fas fa-file-excel", percentage: 80, color: "#217346" },
-    { name: "Power BI", icon: "fas fa-chart-pie", percentage: 70, color: "#F2C811" },
-    { name: "Dashboard Design", icon: "fas fa-tachometer-alt", percentage: 80, color: "#6A1B9A" }
-  ];
+        { name: "VS Code", icon: "fas fa-code", percentage: 90, color: "#007ACC" },
+        { name: "Tableau Desktop", icon: "fas fa-chart-bar", percentage: 80, color: "#E97627" },
+        { name: "R Studio", icon: "fas fa-project-diagram", percentage: 75, color: "#276DC3" },
+        { name: "IntelliJ IDEA", icon: "fas fa-code", percentage: 80, color: "#000000" },
+        { name: "Power BI", icon: "fas fa-chart-pie", percentage: 70, color: "#F2C811" },
+        { name: "Git", icon: "fab fa-git-alt", percentage: 80, color: "#6A1B9A" }
+      ];
+
   
   const categories = [
     { id: 'all', name: 'All Skills', icon: 'fas fa-layer-group' },
+    { id: 'programming', name: 'Programming', icon: 'fas fa-laptop-code' },
     { id: 'frontend', name: 'Frontend', icon: 'fas fa-code' },
     { id: 'backend', name: 'Backend', icon: 'fas fa-server' },
-    { id: 'data', name: 'Data Science', icon: 'fas fa-chart-line' },
-    { id: 'app', name: 'App Dev', icon: 'fas fa-mobile-alt' },
-    { id: 'tools', name: 'Tools', icon: 'fas fa-toolbox' },
-    { id: 'other', name: 'Other', icon: 'fas fa-tools' }
+    { id: 'dataScience', name: 'Data Science', icon: 'fas fa-flask' },
+    { id: 'dataViz', name: 'Data Visualization', icon: 'fas fa-chart-bar' },
+    { id: 'databases', name: 'Databases', icon: 'fas fa-database' },
+    { id: 'appdevelopment', name: 'Machine Learning', icon: 'fas fa-brain' },
+    { id: 'bigData', name: 'Big Data', icon: 'fas fa-server' },
+    { id: 'tools', name: 'Tools', icon: 'fas fa-toolbox' }
   ];
 
   useEffect(() => {
@@ -329,34 +150,37 @@ const Skills = () => {
     return activeCategory === 'all' || activeCategory === categoryId;
   };
 
-  const renderSkillSet = (skillSet, delay = 0) => {
-    return skillSet.map((skill, index) => (
-      <div 
-        className="skill" 
-        key={index}
-        style={{
-          animationDelay: isVisible ? `${delay + index * 0.1}s` : '0s'
-        }}
-      >
-        <div className="skill-info">
-          <span className="skill-icon-container">
-            <i className={skill.icon} style={{ color: skill.color }}></i>
-            <span className="skill-name">{skill.name}</span>
-          </span>
-          <span className="skill-percentage">{skill.percentage}%</span>
-        </div>
-        <div className="skill-bar">
+  const renderCircularSkills = (skillSet, delay = 0) => {
+    return (
+      <div className="skills-grid">
+        {skillSet.map((skill, index) => (
           <div 
-            className="skill-progress" 
-            style={{ 
-              width: isVisible ? `${skill.percentage}%` : '0%', 
-              backgroundColor: skill.color,
-              transitionDelay: isVisible ? `${delay + index * 0.2}s` : '0s'
+            className="skill-circular" 
+            key={index}
+            style={{
+              animationDelay: isVisible ? `${delay + index * 0.1}s` : '0s'
             }}
-          ></div>
-        </div>
+          >
+            <div 
+              className="skill-circle" 
+              style={{ 
+                background: `conic-gradient(${skill.color} ${skill.percentage}%, #f0f0f0 0)` 
+              }}
+            >
+              <div className="skill-inner-circle">
+                <i className={skill.icon} style={{ color: skill.color }}></i>
+              </div>
+            </div>
+            <div className="skill-circular-info">
+              <div className="skill-circular-name">{skill.name}</div>
+              <div className="skill-circular-percentage" style={{ color: skill.color }}>
+                {skill.percentage}%
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
-    ));
+    );
   };
 
   return (
@@ -378,6 +202,23 @@ const Skills = () => {
         </div>
         
         <div className="skills-container">
+          {shouldDisplayCategory('programming') && (
+            <div 
+              className={`skills-category ${isVisible ? 'animate-in' : ''}`}
+              style={{ 
+                background: categoryColors.programming.background,
+                animationDelay: '0.05s'
+              }}
+              data-category="programming"
+            >
+              <h3 className="category-title">
+                <i className="fas fa-laptop-code category-icon"></i>
+                Programming Languages
+              </h3>
+              {renderCircularSkills(programmingLanguages, 0.2)}
+            </div>
+          )}
+          
           {shouldDisplayCategory('frontend') && (
             <div 
               className={`skills-category ${isVisible ? 'animate-in' : ''}`}
@@ -391,9 +232,7 @@ const Skills = () => {
                 <i className="fas fa-code category-icon"></i>
                 Frontend Development
               </h3>
-              <div className="skills-list">
-                {renderSkillSet(frontendSkills, 0.3)}
-              </div>
+              {renderCircularSkills(frontendSkills, 0.3)}
             </div>
           )}
           
@@ -410,94 +249,116 @@ const Skills = () => {
                 <i className="fas fa-server category-icon"></i>
                 Backend Development
               </h3>
-              <div className="skills-list">
-                {renderSkillSet(backendSkills, 0.5)}
-              </div>
+              {renderCircularSkills(backendSkills, 0.5)}
             </div>
           )}
           
-          {shouldDisplayCategory('data') && (
+          {shouldDisplayCategory('dataScience') && (
             <div 
               className={`skills-category ${isVisible ? 'animate-in' : ''}`} 
               style={{ 
-                background: categoryColors.data.background,
-                animationDelay: '0.4s'
+                background: categoryColors.dataScience.background,
+                animationDelay: '0.3s'
               }}
-              data-category="data"
+              data-category="dataScience"
             >
               <h3 className="category-title">
-                <i className="fas fa-chart-line category-icon"></i>
-                Data Science Skills
+                <i className="fas fa-flask category-icon"></i>
+                Data Science
               </h3>
-              <div className="skills-list">
-                {renderSkillSet(dataScienceSkills, 0.7)}
-              </div>
+              {renderCircularSkills(dataScienceSkills, 0.7)}
             </div>
           )}
 
-          {shouldDisplayCategory('app') && (
+          
+
+          {shouldDisplayCategory('dataViz') && (
             <div 
               className={`skills-category ${isVisible ? 'animate-in' : ''}`} 
               style={{ 
-                background: categoryColors.app.background,
+                background: categoryColors.dataViz.background,
+                animationDelay: '0.5s'
+              }}
+              data-category="dataViz"
+            >
+              <h3 className="category-title">
+                <i className="fas fa-chart-bar category-icon"></i>
+                Data Visualization
+              </h3>
+              {renderCircularSkills(dataVisualizationSkills, 1.1)}
+            </div>
+          )}
+
+          {shouldDisplayCategory('databases') && (
+            <div 
+              className={`skills-category ${isVisible ? 'animate-in' : ''}`} 
+              style={{ 
+                background: categoryColors.databases.background,
                 animationDelay: '0.6s'
               }}
-              data-category="app"
+              data-category="databases"
             >
               <h3 className="category-title">
-                <i className="fas fa-mobile-alt category-icon"></i>
+                <i className="fas fa-database category-icon"></i>
+                Databases
+              </h3>
+              {renderCircularSkills(databaseSkills, 1.3)}
+            </div>
+          )}
+
+          {shouldDisplayCategory('appdevelopment') && (
+            <div 
+              className={`skills-category ${isVisible ? 'animate-in' : ''}`} 
+              style={{ 
+                background: categoryColors.appdevelopment.background,
+                animationDelay: '0.7s'
+              }}
+              data-category="appdevelopment"
+            >
+              <h3 className="category-title">
+                <i className="fas fa-brain category-icon"></i>
                 App Development
               </h3>
-              <div className="skills-list">
-                {renderSkillSet(appDevelopmentSkills, 0.9)}
-              </div>
+              {renderCircularSkills(appDevelopmentSkills, 1.5)}
             </div>
           )}
 
-          {shouldDisplayCategory('other') && (
+          {shouldDisplayCategory('bigData') && (
             <div 
               className={`skills-category ${isVisible ? 'animate-in' : ''}`} 
               style={{ 
-                background: categoryColors.other.background,
+                background: categoryColors.bigData.background,
                 animationDelay: '0.8s'
               }}
-              data-category="other"
+              data-category="bigData"
             >
               <h3 className="category-title">
-                <i className="fas fa-tools category-icon"></i>
-                Other Skills
+                <i className="fas fa-server category-icon"></i>
+                Big Data
               </h3>
-              <div className="skills-list">
-                {renderSkillSet(otherSkills, 1.1)}
-              </div>
+              {renderCircularSkills(bigDataSkills, 1.7)}
             </div>
           )}
 
-          {shouldDisplayCategory('tools') && (
-            <div 
-              className={`skills-category ${isVisible ? 'animate-in' : ''}`} 
-              style={{ 
-                background: categoryColors.tools.background,
-                animationDelay: '1s'
-              }}
-              data-category="tools"
-            >
-              <h3 className="category-title">
-                <i className="fas fa-toolbox category-icon"></i>
-                Tools
-              </h3>
-              <div className="skills-list">
-                {renderSkillSet(tools, 1.3)}
-              </div>
-            </div>
-          )}
+    {shouldDisplayCategory('tools') && (
+      <div 
+        className={`skills-category ${isVisible ? 'animate-in' : ''}`} 
+        style={{ 
+          background: categoryColors.tools.background,
+          animationDelay: '1s'
+        }}
+        data-category="tools"
+      >
+        <h3 className="category-title">
+          <i className="fas fa-toolbox category-icon"></i>
+          Tools
+        </h3>
+        <div className="skills-list">
+          {renderCircularSkills(tools, 1.9)}
         </div>
       </div>
-
-      <div className="skills-particles">
-        {[...Array(15)].map((_, i) => (
-          <div key={i} className="particle"></div>
-        ))}
+    )}
+        </div>
       </div>
     </section>
   );

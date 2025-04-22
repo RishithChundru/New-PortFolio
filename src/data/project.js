@@ -67,7 +67,7 @@ const projects = [
     id: 8,
     title: "EV Charging Pattern and Usage Trends Dashboard",
     description: "A Dashboard which shows insights on Electric vehicles charging patterns and their Usage trends.",
-    image: "/assets/images/tableau.png",
+    image: "./assets/images/tableau.png",
     category: "datascience",
     technologies: ["Tableau Desktop", "Data Preprocessing", "Data Cleaning"],
     githubUrl: "https://github.com/RishithChundru/Tableau-Dashboard-Project"
@@ -76,7 +76,7 @@ const projects = [
     id: 9,
     title: "Student Performance Prediction Analysis",
     description: "A Machine Learning project that predicts a student's exam preparation status based on their subject scores.",
-    image: "/assets/images/Rproject.png",
+    image: "./assets/images/Rproject.png",
     category: "datascience",
     technologies: ["R", "Shiny", "ggplot2", "Dashboard", "Data Analysis"],
     githubUrl: "https://github.com/RishithChundru/Predictive-Analysis-Project"

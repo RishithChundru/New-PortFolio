@@ -18,7 +18,7 @@ const Education = () => {
             degree: "Bachelor of Technology in Computer Science",
             institution: "Lovely Professional University",
             location: "Punjab, India",
-            duration: "2022 - Present",
+            duration: "Since 2022",
             description: " CURRENT CGPA: 8.16"
           },
           {
