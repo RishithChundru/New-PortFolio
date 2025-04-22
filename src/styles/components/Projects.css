@@ -1,0 +1,242 @@
+.projects {
+    background: linear-gradient(to bottom, #ffffff, #f8f9fe);
+    position: relative;
+  }
+
+  .projects:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom, rgba(74, 108, 247, 0.05), transparent);
+}
+  
+  .project-filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .filter-btn {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .filter-btn:hover {
+    color: #4a6cf7;
+  }
+  
+  .filter-btn.active {
+    background-color: #4a6cf7;
+    color: white;
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+  }
+  
+  .project-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .project-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .project-card:hover .project-image img {
+    transform: scale(1.1);
+  }
+  
+  .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(74, 108, 247, 0.9);
+    animation: overlayFade 0.4s ease forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  
+  .project-card:hover .project-overlay {
+    opacity: 1;
+  }
+  
+  .project-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .project-link {
+    padding: 10px 20px;
+    background-color: white;
+    color: #4a6cf7;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .project-link:hover {
+    background-color: #333;
+    color: white;
+  }
+  
+  .project-info {
+    padding: 25px;
+  }
+  
+  .project-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .project-description {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .project-tag {
+    padding: 5px 12px;
+    background-color: #f0f0f0;
+    color: #555;
+    border-radius: 20px;
+    font-size: 0.8rem;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .projects-grid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .filter-btn {
+      margin: 0 5px 10px;
+      padding: 8px 15px;
+    }
+  }
+
+
+  .project-tag:hover {
+    background-color: #eaeaea;
+  }
+  
+  /* For data science specific projects, you might want to add a subtle indicator */
+  .project-card[data-category="datascience"] .project-title::before {
+    content: "📊 ";
+  }
+  
+  /* Making the filter buttons more responsive for the added data science option */
+  @media screen and (max-width: 768px) {
+    .project-filters {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+      margin: 0 4px 8px;
+      padding: 6px 12px;
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Add these styles to your existing Projects.css file */
+
+.view-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.view-more-btn {
+  background-color: #4a6cf7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(74, 108, 247, 0.2);
+}
+
+.view-more-btn:hover {
+  background-color: #3a57d7;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(74, 108, 247, 0.3);
+}
+
+.view-more-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Smooth animation when new projects appear */
+.projects-grid {
+  transition: height 0.4s ease;
+}
+
+.project-card {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

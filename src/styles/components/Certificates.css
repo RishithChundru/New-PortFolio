@@ -1,0 +1,245 @@
+.certificates {
+  background: linear-gradient(45deg, #f6f7fb, #fafbff);
+  position: relative;
+  overflow: hidden;
+  padding: 60px 0;
+}
+
+.certificates:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(74, 108, 247, 0.08) 0%, transparent 70%);
+}
+
+.certificates-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+  max-width: 900px;
+}
+
+.certificates-slider {
+  width: 100%;
+  height: 450px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.certificate-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.certificate-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 20px;
+  border: 1px solid #eaeaea;
+}
+
+.certificate-image {
+  height: 65%;
+  overflow: hidden;
+  position: relative;
+  background-color: #f5f5f5;
+}
+
+.certificate-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Changed from cover to contain */
+  transition: transform 0.3s ease;
+  background-color: #f5f5f5;
+  padding: 15px;
+}
+
+.certificate-card:hover .certificate-image img {
+  transform: scale(1.03);
+}
+
+.certificate-info {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  background-color: white;
+}
+
+.certificate-info h3 {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+.certificate-issuer {
+  color: #4a6cf7;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.certificate-date {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.certificate-btn {
+  align-self: flex-start;
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  background-color: #4a6cf7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.certificate-btn:hover {
+  background-color: #3a57d7;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(74, 108, 247, 0.2);
+}
+
+.carousel-arrow {
+  background-color: white;
+  color: #333;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: absolute;
+  z-index: 10;
+  font-size: 1rem;
+}
+
+.carousel-arrow:hover {
+  background-color: #4a6cf7;
+  color: white;
+  transform: scale(1.1);
+}
+
+.carousel-arrow.prev {
+  left: -22px;
+}
+
+.carousel-arrow.next {
+  right: -22px;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ddd;
+  margin: 0 5px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background-color: #4a6cf7;
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .certificates-slider {
+    height: 520px;
+  }
+  
+  .certificate-card {
+    flex-direction: column;
+    margin: 0 10px;
+  }
+  
+  .certificate-image {
+    width: 100%;
+    height: 55%;
+  }
+  
+  .carousel-arrow {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .carousel-arrow.prev {
+    left: 10px;
+  }
+  
+  .carousel-arrow.next {
+    right: 10px;
+  }
+  
+  .certificate-info {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificates-slider {
+    height: 480px;
+  }
+  
+  .certificate-image {
+    height: 50%;
+  }
+  
+  .certificate-info h3 {
+    font-size: 1.1rem;
+  }
+}
+
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(74, 108, 247, 0.2);
+  border-radius: 50%;
+  border-top-color: #4a6cf7;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
