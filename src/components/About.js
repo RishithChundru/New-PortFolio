@@ -130,13 +130,9 @@ const About = () => {
           
           <div className="about-text">
             <p>
-              Hello! I'm Rishith Sai Chowdary Chundru, a passionate Software Developer currently pursuing my Bachelor of Technology in Computer Science Engineering in my third year of study. With a strong foundation in core subjects and hands-on experience in technical projects, I am focused on building practical skills that align with industry trends. My academic journey has been driven by curiosity, problem-solving, and a desire to contribute meaningfully to technological advancements.
-            </p>
-            <p>
-              Throughout my time in college, I have actively developed numerous projects that have expanded my technical knowledge and improved my teamwork and communication abilities. I have gained proficiency in Data Science, Full Stack Development, and Android App Development, working with tools and platforms relevant to my domain. These experiences have prepared me for real-world challenges and taught me how to work effectively in both independent and collaborative environments.
-            </p>
-            <p>
-              As I move forward, I aim to secure a valuable internship at a reputable tech company and engage in industry-level projects that will further enhance my skills and sharpen my expertise. I am passionate about continuous learning and staying updated with emerging technologies, and I look forward to opportunities that allow me to grow both technically and personally.
+              I am Rishith Sai Chowdary Chundru, a third-year B.Tech student in Computer Science Engineering with a strong foundation in software development. My academic and project experience spans Data Science, Full Stack Development, and Android App Development, equipping me with practical skills aligned with current industry demands. I am actively seeking internship opportunities to apply my knowledge in real-world scenarios, contribute to impactful projects, and continue growing as a technology professional.
+
+
             </p>
             
             <div className="about-details">

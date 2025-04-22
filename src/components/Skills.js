@@ -20,21 +20,9 @@ const Skills = () => {
       background: 'linear-gradient(135deg, rgba(48, 105, 152, 0.08), rgba(48, 105, 152, 0.02))',
       border: '#306998'
     },
-    dataViz: {
-      background: 'linear-gradient(135deg, rgba(84, 180, 211, 0.08), rgba(84, 180, 211, 0.02))',
-      border: '#54B4D3'
-    },
-    databases: {
-      background: 'linear-gradient(135deg, rgba(0, 122, 204, 0.08), rgba(0, 122, 204, 0.02))',
-      border: '#007ACC'
-    },
     appdevelopment: {
       background: 'linear-gradient(135deg, rgba(255, 140, 0, 0.08), rgba(255, 140, 0, 0.02))',
       border: '#FF8C00'
-    },
-    bigData: {
-      background: 'linear-gradient(135deg, rgba(232, 119, 34, 0.08), rgba(232, 119, 34, 0.02))',
-      border: '#E87722'
     },
     programming: {
       background: 'linear-gradient(135deg, rgba(73, 101, 163, 0.08), rgba(73, 101, 163, 0.02))',
@@ -63,35 +51,16 @@ const Skills = () => {
   const dataScienceSkills = [
     { name: "Python", icon: "fab fa-python", percentage: 85, color: "#306998" },
     { name: "R Language", icon: "fab fa-r-project", percentage: 90, color: "#276DC3" },
-    { name: "NumPy", icon: "fas fa-calculator", percentage: 85, color: "#4DABCF" },
-    { name: "Pandas", icon: "fas fa-table", percentage: 90, color: "#150458" }
-  ];
-  
-  const dataVisualizationSkills = [
     { name: "Excel", icon: "fas fa-file-excel", percentage: 95, color: "#217346" },
     { name: "Tableau", icon: "fas fa-chart-bar", percentage: 85, color: "#E97627" },
     { name: "Power BI", icon: "fas fa-chart-pie", percentage: 80, color: "#F2C811" },
-    { name: "Matplotlib", icon: "fas fa-chart-line", percentage: 85, color: "#11557C" },
-    { name: "Seaborn", icon: "fas fa-chart-area", percentage: 80, color: "#4CB5AE" }
+    { name: "Hadoop", icon: "fas fa-database", percentage: 75, color: "#FFD119" }
   ];
-  
-  const databaseSkills = [
-    { name: "MySQL", icon: "fas fa-database", percentage: 90, color: "#4479A1" },
-    { name: "MongoDB", icon: "fas fa-leaf", percentage: 85, color: "#4DB33D" },
-    { name: "SQLite", icon: "fas fa-database", percentage: 85, color: "#003B57" }
-  ];
-  
+
   const appDevelopmentSkills = [
     { name: "Kotlin", icon: "fas fa-code", percentage: 80, color: "#A97BFF" },
     { name: "Android Studio", icon: "fas fa-laptop-code", percentage: 75, color: "#3DDC84" },
     { name: "Firebase", icon: "fas fa-fire", percentage: 85, color: "#FFCA28" }
-  ];
-  
-  const bigDataSkills = [
-    { name: "Hadoop", icon: "fas fa-database", percentage: 75, color: "#FFD119" },
-    { name: "Hive", icon: "fas fa-database", percentage: 75, color: "#FDEE21" },
-    { name: "HBase", icon: "fas fa-server", percentage: 70, color: "#BA160C" },
-    { name: "Pig", icon: "fas fa-database", percentage: 65, color: "#FF6A4C" }
   ];
   
   const programmingLanguages = [
@@ -117,10 +86,7 @@ const Skills = () => {
     { id: 'frontend', name: 'Frontend', icon: 'fas fa-code' },
     { id: 'backend', name: 'Backend', icon: 'fas fa-server' },
     { id: 'dataScience', name: 'Data Science', icon: 'fas fa-flask' },
-    { id: 'dataViz', name: 'Data Visualization', icon: 'fas fa-chart-bar' },
-    { id: 'databases', name: 'Databases', icon: 'fas fa-database' },
-    { id: 'appdevelopment', name: 'Machine Learning', icon: 'fas fa-brain' },
-    { id: 'bigData', name: 'Big Data', icon: 'fas fa-server' },
+    { id: 'appdevelopment', name: 'App Development', icon: 'fas fa-brain' },
     { id: 'tools', name: 'Tools', icon: 'fas fa-toolbox' }
   ];
 
@@ -270,42 +236,7 @@ const Skills = () => {
             </div>
           )}
 
-          
-
-          {shouldDisplayCategory('dataViz') && (
-            <div 
-              className={`skills-category ${isVisible ? 'animate-in' : ''}`} 
-              style={{ 
-                background: categoryColors.dataViz.background,
-                animationDelay: '0.5s'
-              }}
-              data-category="dataViz"
-            >
-              <h3 className="category-title">
-                <i className="fas fa-chart-bar category-icon"></i>
-                Data Visualization
-              </h3>
-              {renderCircularSkills(dataVisualizationSkills, 1.1)}
-            </div>
-          )}
-
-          {shouldDisplayCategory('databases') && (
-            <div 
-              className={`skills-category ${isVisible ? 'animate-in' : ''}`} 
-              style={{ 
-                background: categoryColors.databases.background,
-                animationDelay: '0.6s'
-              }}
-              data-category="databases"
-            >
-              <h3 className="category-title">
-                <i className="fas fa-database category-icon"></i>
-                Databases
-              </h3>
-              {renderCircularSkills(databaseSkills, 1.3)}
-            </div>
-          )}
-
+            
           {shouldDisplayCategory('appdevelopment') && (
             <div 
               className={`skills-category ${isVisible ? 'animate-in' : ''}`} 
@@ -320,23 +251,6 @@ const Skills = () => {
                 App Development
               </h3>
               {renderCircularSkills(appDevelopmentSkills, 1.5)}
-            </div>
-          )}
-
-          {shouldDisplayCategory('bigData') && (
-            <div 
-              className={`skills-category ${isVisible ? 'animate-in' : ''}`} 
-              style={{ 
-                background: categoryColors.bigData.background,
-                animationDelay: '0.8s'
-              }}
-              data-category="bigData"
-            >
-              <h3 className="category-title">
-                <i className="fas fa-server category-icon"></i>
-                Big Data
-              </h3>
-              {renderCircularSkills(bigDataSkills, 1.7)}
             </div>
           )}
 
