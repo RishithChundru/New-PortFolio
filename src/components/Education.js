@@ -19,7 +19,7 @@ const Education = () => {
             institution: "Lovely Professional University",
             location: "Punjab, India",
             duration: "Since 2022",
-            description: " CURRENT CGPA: 8.16"
+            description: " CURRENT CGPA: 8.18"
           },
           {
             id: 2,
