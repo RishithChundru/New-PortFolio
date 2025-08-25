@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/components/Skills.css';
+import { SiMongodb } from "react-icons/si";
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -45,11 +46,11 @@ const Skills = () => {
   const backendSkills = [
     { name: "Node.js", icon: "fab fa-node-js", percentage: 70, color: "#3c873a" },
     { name: "Express", icon: "fas fa-server", percentage: 70, color: "#000000" },
-    { name: "PHP", icon: "fab fa-php", percentage: 75, color: "#777BB3" },
+    { name: "MongoDB", icon: <SiMongodb />, percentage: 75, color: "#3c873a" },
   ];
   
   const dataScienceSkills = [
-    { name: "Python", icon: "fab fa-python", percentage: 85, color: "#306998" },
+    { name: "Python", icon: "fab fa-python", percentage: 65, color: "#306998" },
     { name: "R Language", icon: "fab fa-r-project", percentage: 90, color: "#276DC3" },
     { name: "Excel", icon: "fas fa-file-excel", percentage: 95, color: "#217346" },
     { name: "Tableau", icon: "fas fa-chart-bar", percentage: 85, color: "#E97627" },
@@ -116,38 +117,77 @@ const Skills = () => {
     return activeCategory === 'all' || activeCategory === categoryId;
   };
 
+  // const renderCircularSkills = (skillSet, delay = 0) => {
+  //   return (
+  //     <div className="skills-grid">
+  //       {skillSet.map((skill, index) => (
+  //         <div 
+  //           className="skill-circular" 
+  //           key={index}
+  //           style={{
+  //             animationDelay: isVisible ? `${delay + index * 0.1}s` : '0s'
+  //           }}
+  //         >
+  //           <div 
+  //             className="skill-circle" 
+  //             style={{ 
+  //               background: `conic-gradient(${skill.color} ${skill.percentage}%, #f0f0f0 0)` 
+  //             }}
+  //           >
+  //             <div className="skill-inner-circle">
+  //               <i className={skill.icon} style={{ color: skill.color }}></i>
+  //             </div>
+  //           </div>
+  //           <div className="skill-circular-info">
+  //             <div className="skill-circular-name">{skill.name}</div>
+  //             <div className="skill-circular-percentage" style={{ color: skill.color }}>
+  //               {skill.percentage}%
+  //             </div>
+  //           </div>
+  //         </div>
+  //       ))}
+  //     </div>
+  //   );
+  // };
   const renderCircularSkills = (skillSet, delay = 0) => {
-    return (
-      <div className="skills-grid">
-        {skillSet.map((skill, index) => (
+  return (
+    <div className="skills-grid">
+      {skillSet.map((skill, index) => (
+        <div 
+          className="skill-circular" 
+          key={index}
+          style={{
+            animationDelay: isVisible ? `${delay + index * 0.1}s` : '0s'
+          }}
+        >
           <div 
-            className="skill-circular" 
-            key={index}
-            style={{
-              animationDelay: isVisible ? `${delay + index * 0.1}s` : '0s'
+            className="skill-circle" 
+            style={{ 
+              background: `conic-gradient(${skill.color} ${skill.percentage}%, #f0f0f0 0)` 
             }}
           >
-            <div 
-              className="skill-circle" 
-              style={{ 
-                background: `conic-gradient(${skill.color} ${skill.percentage}%, #f0f0f0 0)` 
-              }}
-            >
-              <div className="skill-inner-circle">
+            <div className="skill-inner-circle">
+              {typeof skill.icon === "string" ? (
                 <i className={skill.icon} style={{ color: skill.color }}></i>
-              </div>
-            </div>
-            <div className="skill-circular-info">
-              <div className="skill-circular-name">{skill.name}</div>
-              <div className="skill-circular-percentage" style={{ color: skill.color }}>
-                {skill.percentage}%
-              </div>
+              ) : (
+                <span style={{ color: skill.color, fontSize: "1.5rem" }}>
+                  {skill.icon}
+                </span>
+              )}
             </div>
           </div>
-        ))}
-      </div>
-    );
-  };
+          <div className="skill-circular-info">
+            <div className="skill-circular-name">{skill.name}</div>
+            <div className="skill-circular-percentage" style={{ color: skill.color }}>
+              {skill.percentage}%
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 
   return (
     <section id="skills" className="skills" ref={skillsRef}>

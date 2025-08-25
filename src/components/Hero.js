@@ -155,7 +155,7 @@ const Hero = () => {
           
           <div className="hero-buttons fade-in">
             <a
-              href="https://drive.google.com/file/d/1_zB50Q-RtFDgVBeXfpZwpms4ttTTauWU/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1tLwVBxdg7OxFCz59DgOH5WDozl8Wo939/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               className="btn"
