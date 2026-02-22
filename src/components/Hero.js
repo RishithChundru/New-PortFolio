@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import '../styles/components/Hero.css';
 import { Code, BookOpen, Award } from 'lucide-react';
 
 const Hero = () => {
-  // Array of job titles to cycle through
-  const jobTitles = [
-    "Software Developer",
-    "Full Stack Web Developer",
-    "Android App Developer",
-  ];
-  
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  
+  // Memoize jobTitles to prevent dependency changes
+  const jobTitles = useMemo(() => [
+    "Software Developer",
+    "Full Stack Web Developer",
+    "Android App Developer",
+  ], []);
   
   useEffect(() => {
     // Speed settings
@@ -101,7 +101,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="hero">
+    <section id="hero" className="hero">
       <div className="particles-container"></div>
       
       <div className="hero-container">

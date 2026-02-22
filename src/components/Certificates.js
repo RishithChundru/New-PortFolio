@@ -112,25 +112,6 @@ const Certificates = () => {
   }, []);
 
   // Auto-slide functionality
-  useEffect(() => {
-    if (imagesLoaded) {
-      startAutoSlide();
-    }
-    
-    return () => {
-      if (autoSlideTimerRef.current) {
-        clearInterval(autoSlideTimerRef.current);
-      }
-    };
-  }, [imagesLoaded]);
-  
-  // Reset timer when user manually changes slide
-  useEffect(() => {
-    if (imagesLoaded) {
-      startAutoSlide();
-    }
-  }, [activePage, imagesLoaded]);
-  
   const startAutoSlide = () => {
     if (autoSlideTimerRef.current) {
       clearInterval(autoSlideTimerRef.current);
@@ -142,6 +123,26 @@ const Certificates = () => {
       );
     }, 5000);
   };
+  
+  // Auto-slide functionality
+  useEffect(() => {
+    if (imagesLoaded) {
+      startAutoSlide();
+    }
+    
+    return () => {
+      if (autoSlideTimerRef.current) {
+        clearInterval(autoSlideTimerRef.current);
+      }
+    };
+  }, [imagesLoaded, startAutoSlide]);
+  
+  // Reset timer when user manually changes slide
+  useEffect(() => {
+    if (imagesLoaded) {
+      startAutoSlide();
+    }
+  }, [activePage, imagesLoaded, startAutoSlide]);
   
   const handleMouseEnter = () => {
     if (autoSlideTimerRef.current) {

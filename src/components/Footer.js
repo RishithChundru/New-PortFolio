@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-logo">
-          <a href="#" className="logo">
+          <a href="#hero" className="logo">
             <img src="/assets/images/image.png" alt="Logo" style={{ height: "90px" }} />
           </a>
           </div>
@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="footer-links">
             <h3>Quick Links</h3>
             <ul>
-              <li><a href="#">Home</a></li>
+              <li><a href="#hero">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#education">Education</a></li>
               <li><a href="#skills">Skills</a></li>

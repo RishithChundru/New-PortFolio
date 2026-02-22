@@ -43,7 +43,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
-        <a href="#" className="logo">
+        <a href="#hero" className="logo">
           <img src="/assets/images/image.png" alt="Logo" style={{ height: "90px" }} />
         </a>
         
@@ -54,7 +54,7 @@ const Navbar = () => {
         </div>
         
         <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
-          <li><a href="#" onClick={toggleMenu} className={activeSection === '' ? 'active' : ''}>Home</a></li>
+          <li><a href="#hero" onClick={toggleMenu} className={activeSection === '' ? 'active' : ''}>Home</a></li>
           <li><a href="#about" onClick={toggleMenu} className={activeSection === 'about' ? 'active' : ''}>About</a></li>
           <li><a href="#education" onClick={toggleMenu} className={activeSection === 'education' ? 'active' : ''}>Education</a></li>
           <li><a href="#experience" onClick={toggleMenu} className={activeSection === 'experience' ? 'active' : ''}>Experience</a></li>
