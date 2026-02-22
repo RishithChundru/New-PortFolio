@@ -130,9 +130,7 @@ const About = () => {
           
           <div className="about-text">
             <p>
-              I am Rishith Sai Chowdary Chundru, a third-year B.Tech student in Computer Science Engineering with a strong foundation in software development. My academic and project experience spans Data Science, Full Stack Development, and Android App Development, equipping me with practical skills aligned with current industry demands. I am actively seeking internship opportunities to apply my knowledge in real-world scenarios, contribute to impactful projects, and continue growing as a technology professional.
-
-
+              I am Rishith Sai Chowdary Chundru, a fourth-year B.Tech student in Computer Science Engineering with a strong foundation in software development. My academic and project experience spans Data Science, Full Stack Development, and Android App Development, equipping me with practical skills aligned with current industry demands. Currently, I am working as Software Engineering Intern at MckinleyRice, where I am gaining valuable experience in real-world projects and further honing my technical abilities. I am passionate about continuous learning and eager to contribute to innovative projects that drive technological advancements.
             </p>
             
             <div className="about-details">
@@ -150,7 +148,7 @@ const About = () => {
               </div>
               <div className="detail">
                 <span className="label">Availability:</span>
-                <span className="value">Student</span>
+                <span className="value">Intern</span>
               </div>
             </div>
             

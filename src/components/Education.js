@@ -17,23 +17,23 @@ const Education = () => {
             id: 1,
             degree: "Bachelor of Technology in Computer Science",
             institution: "Lovely Professional University",
-            location: "Punjab, India",
-            duration: "Since 2022",
-            description: " CURRENT CGPA: 8.18"
+            location: "Jalandhar, Punjab",
+            duration: "2022 - 2026",
+            description: " CURRENT CGPA: 8.20"
           },
           {
             id: 2,
             degree: "Higher Secondary Education",
             institution: "Sasi Junior College",
-            location: "Andhra Pradesh, India",
+            location: "Tanuku, Andhra Pradesh",
             duration: "2020 - 2022",
-            description: "PERCENTAGE: 95.6"
+            description: "PERCENTAGE: 95.60"
           },
           {
             id: 3,
             degree: "Matriculation",
             institution: "Roots School of Essential Faculties",
-            location: "Andhra Pradesh, India",
+            location: "Tanuku, Andhra Pradesh",
             duration: "2019 - 2020",
             description: "PERCENTAGE: 97"
           }

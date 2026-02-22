@@ -40,13 +40,15 @@ const Skills = () => {
     { name: "CSS3", icon: "fab fa-css3-alt", percentage: 95, color: "#264de4" },
     { name: "JavaScript", icon: "fab fa-js", percentage: 70, color: "#f0db4f" },
     { name: "React.js", icon: "fab fa-react", percentage: 70, color: "#61DBFB" },
-    { name: "Tailwind CSS", icon: "fab fa-css3", percentage: 85, color: "#38B2AC" }
+    { name: "Tailwind CSS", icon: "fab fa-css3", percentage: 85, color: "#38B2AC" },
+    { name: "Next.js", icon: "fab fa-code", percentage: 65, color: "#000000" }
   ];
   
   const backendSkills = [
     { name: "Node.js", icon: "fab fa-node-js", percentage: 70, color: "#3c873a" },
     { name: "Express", icon: "fas fa-server", percentage: 70, color: "#000000" },
     { name: "MongoDB", icon: <SiMongodb />, percentage: 75, color: "#3c873a" },
+    { name: "Nest.js", icon: "fas fa-server", percentage: 80, color: "#00758F" },
   ];
   
   const dataScienceSkills = [

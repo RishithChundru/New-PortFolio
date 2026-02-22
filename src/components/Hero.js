@@ -6,9 +6,8 @@ const Hero = () => {
   // Array of job titles to cycle through
   const jobTitles = [
     "Software Developer",
-    "Data Analyst",
+    "Full Stack Web Developer",
     "Android App Developer",
-    "Full Stack Web Developer"
   ];
   
   const [displayText, setDisplayText] = useState('');
@@ -155,7 +154,7 @@ const Hero = () => {
           
           <div className="hero-buttons fade-in">
             <a
-              href="https://drive.google.com/file/d/1tLwVBxdg7OxFCz59DgOH5WDozl8Wo939/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1FRVyonTosZVKw9n11PAM05VWRhzPxALl/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               className="btn"

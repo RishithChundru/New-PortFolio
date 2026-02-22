@@ -15,7 +15,7 @@ const Navbar = () => {
       }
       
       // Determine which section is currently in view
-      const sections = ['about', 'education', 'skills', 'certificates', 'projects', 'contact'];
+      const sections = ['about', 'education','experience', 'skills', 'certificates', 'projects', 'contact'];
       let currentSection = '';
       
       for (const section of sections) {
@@ -57,6 +57,7 @@ const Navbar = () => {
           <li><a href="#" onClick={toggleMenu} className={activeSection === '' ? 'active' : ''}>Home</a></li>
           <li><a href="#about" onClick={toggleMenu} className={activeSection === 'about' ? 'active' : ''}>About</a></li>
           <li><a href="#education" onClick={toggleMenu} className={activeSection === 'education' ? 'active' : ''}>Education</a></li>
+          <li><a href="#experience" onClick={toggleMenu} className={activeSection === 'experience' ? 'active' : ''}>Experience</a></li>
           <li><a href="#skills" onClick={toggleMenu} className={activeSection === 'skills' ? 'active' : ''}>Skills</a></li>
           <li><a href="#certificates" onClick={toggleMenu} className={activeSection === 'certificates' ? 'active' : ''}>Certificates</a></li>
           <li><a href="#projects" onClick={toggleMenu} className={activeSection === 'projects' ? 'active' : ''}>Projects</a></li>
