@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef ,useCallback} from 'react';
 import '../styles/components/Certificates.css';
 
 const Certificates = () => {
@@ -67,7 +67,7 @@ const Certificates = () => {
   ];
 
   // Calculate total pages based on certificates count and visible cards
-  const totalPages = Math.ceil(certificates.length / 3);
+  const totalPages = Math.ceil(certificates.length /visibleCards);
 
   // Update visible cards based on window size
   useEffect(() => {
@@ -109,10 +109,10 @@ const Certificates = () => {
     };
     
     loadImages();
-  }, []);
+  }, [certificates]);
 
   // Auto-slide functionality
-  const startAutoSlide = () => {
+  const startAutoSlide = useCallback(() => {
     if (autoSlideTimerRef.current) {
       clearInterval(autoSlideTimerRef.current);
     }
@@ -122,7 +122,7 @@ const Certificates = () => {
         prevPage === totalPages - 1 ? 0 : prevPage + 1
       );
     }, 5000);
-  };
+  }, [totalPages]);
   
   // Auto-slide functionality
   useEffect(() => {
@@ -183,8 +183,8 @@ const Certificates = () => {
 
   // Get certificates for current page
   const getCurrentPageCertificates = () => {
-    const startIndex = activePage * 3;
-    const endIndex = Math.min(startIndex + 3, certificates.length);
+    const startIndex = activePage * visibleCards;
+    const endIndex = Math.min(startIndex + visibleCards, certificates.length);
     return certificates.slice(startIndex, endIndex);
   };
 
