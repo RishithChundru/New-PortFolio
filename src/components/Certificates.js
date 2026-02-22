@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef ,useCallback} from 'react';
+import React, { useState, useEffect, useRef ,useCallback, useMemo } from 'react';
 import '../styles/components/Certificates.css';
 
 const Certificates = () => {
@@ -9,7 +9,7 @@ const Certificates = () => {
   const carouselRef = useRef(null);
 
   // Certificate data
-  const certificates = [
+  const certificates = useMemo(() => [
     {
       id: 1,
       title: "Mastering Data Structures Using C and C++",
@@ -64,7 +64,7 @@ const Certificates = () => {
       fallbackImage: "assets/images/certificate-placeholder.png",
       link: "https://drive.google.com/file/d/1WYqGU0KIp5QIxeIWEONbF1UEfyAI2oGN/view?usp=drive_link"
     }
-  ];
+  ],[]);
 
   // Calculate total pages based on certificates count and visible cards
   const totalPages = Math.ceil(certificates.length /visibleCards);
